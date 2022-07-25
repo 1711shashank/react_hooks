@@ -1,17 +1,12 @@
 import React, { useState } from 'react'
+import UseStateArray from './component/UseStateArray'
+import SwitchName from './component/SwitchName'
 
 function App() {
 
-  const [name, setName] = useState('Kumar');
-
-  const changeName = () => {
-    name === 'Kumar' ? setName('Shashank') : setName('Kumar');
-  }
-
   return (
     <>
-      <h2>{name}</h2>
-      <button onClick={changeName}> click me </button>
+      <UseStateArray/>
     </>
   )
 }
