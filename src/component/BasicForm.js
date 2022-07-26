@@ -17,14 +17,14 @@ function BasicForm() {
             <form action='' onSubmit={submitForm}>
                 <div>
                     <label>Email</label>
-                    <input id="email" type="text" name="email"
+                    <input id="email" type="text" name="email" required
                         value={email}
                         onChange={(e) => setEmail(e.target.value)}
                     />
                 </div>
                 <div>
                     <label>Password</label>
-                    <input id="password" type="password" name="password"
+                    <input id="password" type="password" name="password" required
                         value={password}
                         onChange={(e) => setPassword(e.target.value)}
                     />
