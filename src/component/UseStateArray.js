@@ -1,27 +1,48 @@
 import React, { useState } from 'react'
 
 function UseStateArray() {
-    const data = [
+    
+    const tasks = [
         {
-            id: 0, name: 'Kumar', age: 21
+            id: 1, task: 'Todays Grocery Shopping'
         },
         {
-            id: 1, name: 'Shashank', age: 22
+            id: 2, task: 'Solve 2 questions LeetCode'
+        },
+        {
+            id: 3, task: 'College Assigment'
+        },
+        {
+            id: 4, task: 'OS & DBMS'
         }
     ]
-
-    const [arrayData, setArrayData] = useState(data);
+    const [todoArray, setTodoArray] = useState(tasks);
 
     const clearArray = () => {
-        setArrayData([]);
+        setTodoArray([]);
+    }
+
+    const removeEle = (id) => {    
+        const newTodoArray = todoArray.filter((e) => {
+            return e.id !== id;
+        })
+
+        setTodoArray(newTodoArray);
     }
 
     return (
         <>
             {
-                arrayData.map((dataEle) => <h3 key={dataEle.id}>  Name : {dataEle.name} and Age: {dataEle.age}  </h3>)
+                todoArray.map((valTask) => {
+                    return (
+                        <h3 key={valTask.id}>
+                            <button onClick={() => removeEle(valTask.id)}> Remove </button>
+                            {valTask.task}
+                        </h3>
+                    );
+                })
             }
-            <button onClick={clearArray} >Clear</button>
+            <button onClick={clearArray} > Clear All </button>
 
         </>
     )
