@@ -5,11 +5,21 @@ function BasicForm() {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
 
-    const [allData, setAllData] = useState([]);
+    const [allEntry, setAllEntry] = useState([]);
 
     const submitForm = (e) => {
         e.preventDefault();
-        setAllData([...allData, { email: email, password: password }]);
+        
+        if(email && password){
+        const newEntry = { id: new Date().getTime().toString, email, password}
+
+        setAllEntry([...allEntry, newEntry]);
+        setEmail('');
+        setPassword('');
+        } else {
+            alert('Plz fill the data');
+        }
+
     }
 
     return (
@@ -31,12 +41,14 @@ function BasicForm() {
                 </div>
                 <button type='submit'>Login</button>
             </form>
+
             <div>
-                {allData.map((e) => {
+                {allEntry.map((e) => {
+                    const {id, email, password} = e;
                     return (
-                        <>
-                            <p> Email {e.email}, Password:- {e.password}</p>
-                        </>
+                        <div key={id}>
+                            <p> Email {email}, Password:- {password}</p>
+                        </div>
                     );
                 })}
             </div>
