@@ -2,41 +2,68 @@ import React, { useState } from 'react'
 
 function BasicForm() {
 
-    const [email, setEmail] = useState('');
-    const [password, setPassword] = useState('');
-
+    const [userData, setUserData] = useState({  username: "", email: "", phone: "", password: ""});
     const [allEntry, setAllEntry] = useState([]);
 
-    const submitForm = (e) => {
+    // const submitForm = (e) => {
+    //     e.preventDefault();
+
+    //     if (userData.email && userData.password) {
+    //         const newEntry = { id: new Date().getTime().toString, userData.email, userData.password }
+
+    //         setAllEntry([...allEntry, newEntry]);
+    //         setEmail('');
+    //         setPassword('');
+    //     } else {
+    //         alert('Plz fill the data');
+    //     }
+
+    // }
+    const handleInput = (e) => {
         e.preventDefault();
-        
-        if(email && password){
-        const newEntry = { id: new Date().getTime().toString, email, password}
+
+        const name = e.target.name;
+        const value = e.target.value;
+
+        setUserData({...userData, [name]: value })
+    }
+    const handleSubmit = (e) => {
+        e.preventDefault();
+
+        const newEntry = {...userData, id : new Date().getTime().toString()}
 
         setAllEntry([...allEntry, newEntry]);
-        setEmail('');
-        setPassword('');
-        } else {
-            alert('Plz fill the data');
-        }
-
     }
 
     return (
         <>
-            <form action='' onSubmit={submitForm}>
+            <form action='' onSubmit={handleSubmit}>
+                <div>
+                    <label> Usere Name </label>
+                    <input id="username" type="text" name="username" required
+                        value={userData.username}
+                        onChange={handleInput}
+                    />
+                </div>
                 <div>
                     <label>Email</label>
                     <input id="email" type="text" name="email" required
-                        value={email}
-                        onChange={(e) => setEmail(e.target.value)}
+                        value={userData.email}
+                        onChange={handleInput}
+                    />
+                </div>
+                <div>
+                    <label>Phone</label>
+                    <input id="phone" type="number" name="phone" required
+                        value={userData.phone}
+                        onChange={handleInput}
                     />
                 </div>
                 <div>
                     <label>Password</label>
                     <input id="password" type="password" name="password" required
-                        value={password}
-                        onChange={(e) => setPassword(e.target.value)}
+                        value={userData.password}
+                        onChange={handleInput}
                     />
                 </div>
                 <button type='submit'>Login</button>
@@ -44,10 +71,10 @@ function BasicForm() {
 
             <div>
                 {allEntry.map((e) => {
-                    const {id, email, password} = e;
+                    const { id, username, email, phone, password } = e;
                     return (
                         <div key={id}>
-                            <p> Email {email}, Password:- {password}</p>
+                            <p> Username {username}, Email {email}, Phone {phone}, Password:- {password}</p>
                         </div>
                     );
                 })}
