@@ -6,13 +6,14 @@ import BasicForm from './component/BasicForm'
 import UseEffect1 from './component/UseEffect1'
 import UseEffect2 from './component/UseEffect2'
 import UseEffectAPI from './component/UseEffectAPI'
+import './App.css'
 
 function App() {
 
   return (
-    <>
+    <div className='App'>
       <UseEffectAPI/>
-    </>
+    </div>
   )
 }
 
