@@ -5,12 +5,13 @@ import UseStateObject from './component/UseStateObject'
 import BasicForm from './component/BasicForm'
 import UseEffect1 from './component/UseEffect1'
 import UseEffect2 from './component/UseEffect2'
+import UseEffectAPI from './component/UseEffectAPI'
 
 function App() {
 
   return (
     <>
-      <UseEffect2/>
+      <UseEffectAPI/>
     </>
   )
 }
