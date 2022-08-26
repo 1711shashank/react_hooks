@@ -18,15 +18,14 @@ function UseEffect1() {
     }, [count]); 
 
     // useEffect Dependency
-    // this useEffect will re-render only when count useState will change, => useState written inside the [count], => if empty then re-render only once (at time of page refresh)
-    //any change in other any other useEffect will not re-render this useEffect
+    // this useEffect will re-render only when count useState will change => useState written inside the [count], => if empty then re-render only once (at time of page refresh)
+    // any change in any other useEffect will not re-render this useEffect
 
 
     return (
         <div>
             <h3> {count} </h3>
             <button onClick={() => setCount(count + 1)}> Click me </button>
-
         </div>
     )
 }

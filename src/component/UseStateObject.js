@@ -5,14 +5,17 @@ function UseStateObject() {
 
   const [objData, setObjData] = useState(initialData);
 
-  const changeName = () => {
+  const changeName = (e) => {
+    e.preventDefault();
     setObjData({ ...objData, name: 'Shashank' });
   }
 
   return (
     <>
-      <h3>  Name : {objData.name} and Age: {objData.age}  </h3>
-      <button onClick={changeName}>Change Name</button>
+      <form>
+        <h3>  Name : {objData.name} and Age: {objData.age}  </h3>
+        <button onClick={changeName}>Change Name</button>
+      </form>
     </>
   )
 }

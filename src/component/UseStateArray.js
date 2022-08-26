@@ -36,8 +36,8 @@ function UseStateArray() {
                 todoArray.map((valTask) => {
                     return (
                         <h3 key={valTask.id}>
-                            <button onClick={() => removeEle(valTask.id)}> Remove </button>
                             {valTask.task}
+                            <button onClick={() => removeEle(valTask.id)}> Remove </button>
                         </h3>
                     );
                 })
