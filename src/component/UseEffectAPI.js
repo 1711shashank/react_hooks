@@ -1,14 +1,15 @@
 // https://mui.com/material-ui/getting-started/installation/
 
 import React, { useState, useEffect } from 'react'
-import LinkedInIcon from '@mui/icons-material/LinkedIn';
-import GitHubIcon from '@mui/icons-material/GitHub';
-import InstagramIcon from '@mui/icons-material/Instagram';
+
 import './ProfileCard.css'
+import Loading from './Loading';
+import ProfileCards from './ProfileCards';
 
 function UseEffectAPI() {
 
     const [apiData, setApiData] = useState([]);
+    const [loading, setLoading] = useState(true);
 
     const getApiData = async () => {
         try {
@@ -23,6 +24,8 @@ function UseEffectAPI() {
             // console.log(response);
             setApiData(response);
             console.log(apiData);
+
+            setLoading(false);
         }
         catch (err) {
             console.log(err);
@@ -33,37 +36,10 @@ function UseEffectAPI() {
         getApiData();
     }, []);
 
-
-    return (
-        <>
-            {
-                apiData.map((curData) => {                    
-                    return (
-                        <div key={curData._id} className='profileCard'>
-
-                            <div><img src={curData.avatar_url} /></div>
-
-                            <div><h3> {curData.name} </h3></div>
-
-                            <div className='profileCard__links'>
-                                <a href={curData.linkedin_ID} target="_blank">
-                                    <LinkedInIcon size="2x" />
-                                </a>
-                                <a href={curData.github_ID} target="_blank">
-                                    <GitHubIcon size="2x" />
-                                </a>
-                                <a href={curData.insta_ID} target="_blank">
-                                    <InstagramIcon size="2x" />
-                                </a>
-                            </div>
-
-                        </div>
-                    );
-                })
-            }
-
-        </>
-    )
+    if(loading){
+        return <Loading/>
+    }
+    return <ProfileCards usersData={apiData}/>
 }
 
 export default UseEffectAPI
