@@ -2,6 +2,7 @@ import React from 'react';
 import LinkedInIcon from '@mui/icons-material/LinkedIn';
 import GitHubIcon from '@mui/icons-material/GitHub';
 import InstagramIcon from '@mui/icons-material/Instagram';
+import { FcApproval } from "react-icons/fc";
 
 function ProfileCards({usersData}) {
     return (
@@ -13,7 +14,7 @@ function ProfileCards({usersData}) {
 
                             <div><img src={curUserData.avatar_url} /></div>
 
-                            <div><h3> {curUserData.name} </h3></div>
+                            <div><h3> {curUserData.name} <FcApproval/> </h3></div>
 
                             <div className='profileCard__links'>
                                 <a href={curUserData.linkedin_ID} target="_blank">

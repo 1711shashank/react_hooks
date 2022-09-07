@@ -2,7 +2,7 @@ import React,{ useRef, useState } from 'react'
 
 const UnconrolledFrom = () => {
 
-    //it like a useState only and its preserve the value.  NO re-render
+    //it like a useState only, and its preserve the value.  NO re-render
     const myName = useRef(null);
     const [show, setShow] = useState(false);
 

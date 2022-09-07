@@ -7,13 +7,14 @@ import UseEffect1 from './component/UseEffect1'
 import UseEffect2 from './component/UseEffect2'
 import UseEffectAPI from './component/UseEffectAPI'
 import UnconrolledFrom from './component/UnconrolledFrom'
+import UseReducer from './component/UseReducer'
 import './App.css'
 
 function App() {
-
+ 
   return (
     <div className='App'>
-      <UnconrolledFrom/>
+      <UseReducer/>
     </div>
   )
 }
