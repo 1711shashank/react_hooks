@@ -8,13 +8,14 @@ import UseEffect2 from './component/UseEffect2'
 import UseEffectAPI from './component/UseEffectAPI'
 import UnconrolledFrom from './component/UnconrolledFrom'
 import UseReducer from './component/UseReducer'
+import ComA from './component/useContext/ComA'
 import './App.css'
 
 function App() {
  
   return (
     <div className='App'>
-      <UseReducer/>
+      <ComA/>
     </div>
   )
 }
