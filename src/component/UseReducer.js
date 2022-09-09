@@ -1,4 +1,6 @@
 import React, { useReducer } from 'react'
+import useTitleCount from './useTitleCount';
+
 
 const initialState = 0;
 
@@ -15,11 +17,13 @@ function UseReducer() {
 
     const [state, dispatch] = useReducer(reducer, initialState);
 
+    useTitleCount(state);
+
     return (
         <>
             <p>{state}</p>
-            <button onClick={() => dispatch({ type: "INCREMENT" })}> Inc </button>
             <button onClick={() => dispatch({ type: "DECREMENT" })}> Dec </button>
+            <button onClick={() => dispatch({ type: "INCREMENT" })}> Inc </button>
         </>
     )
 }
